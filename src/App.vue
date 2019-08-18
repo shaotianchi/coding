@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <div class="logo">Souche Coding</div>
+      <div class="user">{{'你好，' + $store.state.user.name}}</div>
     </div>
     <router-view/>
   </div>
@@ -13,17 +13,26 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  flex-direction: column;
 }
 #nav {
-  padding: 30px;
-  a {
+  height: 60px;
+  background-color: black;
+  color: #FF571A;
+  display: flex;
+  align-items: center;
+  .logo {
+    display: flex;
+    flex: 1;
+    font-size: 20px;
     font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+    margin-left: 32px;
+  } 
+
+  .user {
+    display: flex;
+    font-size: 20px;
+    margin-right: 32px;
   }
 }
 </style>

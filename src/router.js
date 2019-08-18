@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Examination from './views/Examination'
+import Management from './views/Management'
+import Questions from './views/Questions'
+import Interviews from './views/Interviews'
 
 Vue.use(Router)
 
@@ -10,6 +14,29 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/examination', 
+      name: 'examination',
+      component: Examination
+    },
+    {
+      path: '/management', 
+      name: 'management',
+      component: Management,
+      redirect: { name: 'questions' },
+      children: [
+        {
+          path: 'questions',
+          name: 'questions',
+          component: Questions
+        },
+        {
+          path: 'interviews',
+          name: 'interviews',
+          component: Interviews 
+        }
+      ]
     },
     {
       path: '/about',
